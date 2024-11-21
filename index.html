@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+      <!-- danfr755, hanfr829 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNM093 [Vis-Applications-Lab]</title>
+    <link rel="icon" href="fjallsipa_front.png">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
+</head>
+<body>
+    <h1>Vis Applications Lab (2024HT)</h1>
+
+    <!-- Left side widget container -->
+    <div id="controls">
+        <h2>Spring System Controls</h2>
+        
+        <!-- Widgets for modifying parameters -->
+        <label for="k">Spring Stiffness (Horizontal/Vertical):</label>
+        <div class="slider-container">
+            <input type="range" id="k" min="10" max="100" step="1" value="50">
+            <span id="k-value">50</span>
+        </div>
+
+        <label for="k-diagonal">Shear Spring Stiffness (Diagonal):</label>
+        <div class="slider-container">
+            <input type="range" id="k-diagonal" min="10" max="100" step="1" value="50">
+            <span id="k-diagonal-value">50</span>
+        </div>
+
+        <label for="damping">Global Damping:</label>
+        <div class="slider-container">
+            <input type="range" id="damping" min="0" max="10" step="0.1" value="1">
+            <span id="damping-value">1</span>
+        </div>
+
+        <label for="restoring-force">Restoring Force:</label>
+        <div class="slider-container">
+            <input type="range" id="restoring-force" min="50" max="200" step="1" value="100">
+            <span id="restoring-force-value">100</span>
+        </div>
+
+        <label for="mass">Node Mass:</label>
+        <div class="slider-container">
+            <input type="range" id="mass" min="0.1" max="10" step="0.1" value="1">
+            <span id="mass-value">1</span>
+        </div>
+    </div>
+
+    <!-- Canvas for simulation -->
+    <div id="main-container">
+        <svg id="canvas" width="800" height="600"></svg>
+
+        <!-- Task Buttons in a row (First Row) -->
+        <div id="controls-row1">
+            <button id="task1Btn" class="task-btn">Task 1: Two Mass System</button>
+            <button id="task2Btn" class="task-btn">Task 2: Four Mass System</button>
+            <button id="task3Btn" class="task-btn">Task 3: Four Mass (Spring) System</button>
+        </div>
+
+        <!-- Task Buttons in a row (Second Row) -->
+        <div id="controls-row2">
+            <button id="task4Btn" class="task-btn">Task 4: Nine Mass (Spring) System</button>
+            <button id="task5Btn" class="task-btn">Task 5: 4x4 Mass (Spring) System</button>
+            <button id="task5.2Btn" class="task-btn">Task 5 (extra): 3x5 Mass (Spring) System</button>
+        </div>
+    </div>
+
+    <!-- External JS file links -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="widgetvalue.js"></script>  <!-- New script for widget handling -->
+    <script src="scriptswap.js"></script>  <!-- This script handles the dynamic loading of Task scripts -->
+</body>
+</html>

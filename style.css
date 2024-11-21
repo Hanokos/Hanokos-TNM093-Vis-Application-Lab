@@ -1,0 +1,216 @@
+/* style.css */
+
+/* Global Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Ensure body is centered horizontally */
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    text-align: center;
+    padding-bottom: 20px; /* Add space to the bottom of the screen */
+}
+
+/* Title Styling */
+h1 {
+    margin-bottom: 10px;  /* Reduce space between title and canvas */
+    font-size: 24px;  /* Title size */
+}
+
+/* Controls Styling - Placed to the Left of the Canvas */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin-right: 30px; /* Space between controls and canvas */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px; /* Fixed width for controls */
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+/* Space between each label and input (slider) */
+#controls label {
+    margin-bottom: 5px;  /* Space between label and slider */
+}
+
+/* Container for sliders */
+.slider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;  /* Add space between sliders */
+}
+
+/* Slider Input Styling */
+#controls input[type="range"] {
+    width: 180px;
+    margin-right: 10px;  /* Space between the slider and the value */
+}
+
+/* Value Styling (Displays to the right of the slider) */
+#controls span {
+    font-size: 16px;
+}
+
+/* Main container for canvas and buttons */
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;  /* Take up full width */
+    max-width: 1200px;
+    margin-top: 10px;  /* Reduce space between title and canvas */
+}
+
+/* Canvas Styling */
+#canvas {
+    border: 1px solid black;
+    margin-bottom: 20px; /* Space below the canvas */
+    width: 800px;  /* Set canvas width */
+    height: 600px; /* Set canvas height */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Controls - Align Buttons in Rows */
+#controls-row1, #controls-row2 {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;  /* Add space between buttons and canvas */
+}
+
+/* Button Styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 180px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button.active {
+    background-color: #2e7031;
+    color: white;
+}
+
+/* Optional Styling for Task Tabs */
+.task-tab {
+    display: none;
+    margin-top: 10px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.task-tab.active {
+    display: block;
+}
+
+.task-content {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #333;
+    text-align: center;
+}
+
+/* Responsive Adjustments for Small Screens */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    #controls-row1, #controls-row2 {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+        width: 160px;
+    }
+
+    #canvas {
+        width: 70vw;
+        height: auto;
+    }
+
+    .task-content {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    #controls-row1, #controls-row2 {
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 12px;
+        width: 140px;
+    }
+
+    #canvas {
+        width: 80vw;
+        height: auto;
+    }
+
+    .task-content {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    #controls-row1, #controls-row2 {
+        gap: 5px;
+        margin-bottom: 5px;
+    }
+
+    button {
+        font-size: 10px;
+        padding: 5px 10px;
+        width: 120px;
+    }
+
+    #canvas {
+        width: 90vw;
+        height: auto;
+    }
+
+    .task-content {
+        font-size: 8px;
+    }
+}
