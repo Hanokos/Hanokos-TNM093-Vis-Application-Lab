@@ -221,3 +221,21 @@ button.active {
         font-size: 8px;
     }
 }
+
+/* Image 1 - Bottom Right */
+#image1 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: auto;  /* Automatically adjust width based on height */
+    height: 650px; /* Increase height to make the image larger */
+}
+
+/* Image 2 - Bottom Left */
+#image2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: auto;  /* Automatically adjust width based on height */
+    height: 300px; /* Increase height to make the image larger */
+}
