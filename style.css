@@ -10,7 +10,7 @@ body {
     justify-content: flex-start;
     height: 100vh;
     overflow: hidden;
-    background-color: #f5f5f5;  /* Light gray background */
+    background-color: #c0d6d7;  /* Light gray background */
     text-align: center;
     padding-bottom: 20px; /* Reduced space at the bottom of the screen */
 }
@@ -96,7 +96,7 @@ h1 {
 
 /* Button Styling */
 button {
-    background-color: #4CAF50;
+    background-color: #27a87a;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -115,11 +115,11 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #064f2f;
 }
 
 button.active {
-    background-color: #2e7031;
+    background-color: #5ccca5;
     color: white;
 }
 
