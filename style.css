@@ -10,7 +10,7 @@ body {
     justify-content: flex-start;
     height: 100vh;
     overflow: hidden;
-    background-color: #c0d6d7;  /* Light gray background */
+    background-color: #d7f0f1;  /* Light gray background */
     text-align: center;
     padding-bottom: 20px; /* Reduced space at the bottom of the screen */
 }
@@ -19,6 +19,14 @@ body {
 h1 {
     margin-bottom: 5px;  /* Reduced space between title and canvas */
     font-size: 24px;  /* Title size */
+}
+
+/* Task Text Styling - Position it under the title */
+#task-text {
+    font-size: 18px;
+    margin-top: 10px;  /* Added some space between title and task text */
+    font-weight: bold;
+    color: #333;
 }
 
 /* Controls Styling - Placed to the Left of the Canvas */
@@ -38,10 +46,29 @@ h1 {
     transform: translateY(-50%);
 }
 
-/* Space between each label and input (slider) */
-#controls label {
-    margin-bottom: 5px;  /* Space between label and slider */
+/* Centering "System Controls" text */
+#controls h2 {
+    text-align: center;  /* Centers the header */
+    width: 100%;  /* Ensures the heading is within the container */
 }
+
+/* Styling for the label */
+#controls label {
+    display: block;  /* Makes the label a block element to ensure text appears on multiple lines */
+    width: 250px;  /* Fixed width for the labels */
+    height: auto;  /* Let the height adjust based on content */
+    margin-bottom: 5px;  /* Space between label and slider */
+    line-height: 1.5;  /* Adjust line-height for better vertical spacing */
+    text-align: left;  /* Left-align text within the label */
+}
+
+/* Make the span inside the label appear on the next line */
+#controls label span {
+    display: block;  /* This forces the span to start on a new line */
+    font-size: 14px;  /* You can adjust the font size of the second line if needed */
+    color: #555;  /* Lighter color for the additional text (optional) */
+}
+
 
 /* Container for sliders */
 .slider-container {
