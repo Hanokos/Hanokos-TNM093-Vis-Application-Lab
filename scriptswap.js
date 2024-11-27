@@ -1,4 +1,3 @@
-// scriptswap.js
 // Event listener for Task 1 button (reloads page with a query parameter for Task 1)
 document.getElementById("task1Btn").addEventListener("click", function() {
     window.location.href = window.location.pathname + "?task=1";  // Reload the page with task=1 parameter
@@ -34,12 +33,18 @@ window.onload = function() {
     const params = new URLSearchParams(window.location.search);  // Get URL parameters
     const task = params.get("task");
 
+    // Disable slider if on task 1 or task 2
+    const kShearSlider = document.getElementById("k-shear");
+    const kShearValueSpan = document.getElementById("k-shear-value");
+    
     if (task === "1") {
         loadScript("task1.js");  // Load script1.js for Task 1
         updateTaskText("Task 1: Two Mass System");
+        disableSlider(kShearSlider, kShearValueSpan);  // Disable the slider for task 1
     } else if (task === "2") {
         loadScript("task2.js");  // Load script2.js for Task 2
         updateTaskText("Task 2: Four Mass System");
+        disableSlider(kShearSlider, kShearValueSpan);  // Disable the slider for task 2
     } else if (task === "3") {
         loadScript("task3.js");  // Load script3.js for Task 3
         updateTaskText("Task 3: Four Mass (Spring) System");
@@ -55,7 +60,7 @@ window.onload = function() {
     }
 };
 
-// Function to dynamically load a script
+// Function to load a script
 function loadScript(scriptUrl) {
     // Clear any previous scripts
     removeAllScripts();
@@ -79,4 +84,12 @@ function removeAllScripts() {
 function updateTaskText(taskName) {
     const taskTextElement = document.getElementById("task-text");
     taskTextElement.textContent = taskName;
+}
+
+// Function to disable the Spring Stiffness slider
+function disableSlider(slider, valueSpan) {
+    if (slider) {
+        slider.disabled = true;  // Disable the slider
+        valueSpan.textContent = "N/A";  // Set the displayed value to "N/A" or similar
+    }
 }
