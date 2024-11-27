@@ -1,9 +1,10 @@
+//task1.js
 // Initial system configuration for the Two Mass System
-const width = 800, height = 600;
-let h = 0.1; // Time step
+const width = 800, height = 600; // for SVG canvas
+let h = 0.01; // Time step
 let k = 50;  // Spring stiffness
 let b = 1;   // Damping coefficient
-let m = 1;   // Mass
+let m = 0.2;   // Mass
 let restLength = 50;
 
 // Define the initial two-mass system
@@ -14,21 +15,20 @@ let particlesTask1 = [
 
 let particles = particlesTask1; // Initial particles setup
 
-// Create the SVG canvas
+// Creates the SVG canvas 800x600
 const svg = d3.select("#canvas")
     .attr("width", width)
     .attr("height", height);
 
-// Create particles (circles)
+// Creates circles
 let circles = svg.selectAll("circle")
-    .data(particles)
-    .enter()
-    .append("circle")
-    .attr("r", 10)
+    .data(particles) // link data to corresponding particle
+    .enter().append("circle")  //Creates a new circle
+    .attr("r", 10) // radius
     .attr("fill", "blue")
-    .attr("cx", d => d.x)
+    .attr("cx", d => d.x) // placed cordinates based on the particles position
     .attr("cy", d => d.y)
-    .call(d3.drag()
+    .call(d3.drag() // Enables dragging
         .on("drag", (event, d) => {
             d.x = event.x;
             d.y = event.y;
@@ -37,18 +37,17 @@ let circles = svg.selectAll("circle")
         })
     );
 
-// Create spring lines (lines between particles)
+// Create spring lines 
 let springLines = svg.selectAll("line")
-    .data([{ p1: particles[0], p2: particles[1] }])
-    .enter()
-    .append("line")
+    .data([{ p1: particles[0], p2: particles[1] }]) // to draw between two particles
+    .enter().append("line") //Creates a new line
     .attr("stroke", "black")
     .attr("stroke-width", 2);
 
 // Function to update spring lines based on particle positions
 function updateSpring() {
     springLines
-        .data([{ p1: particles[0], p2: particles[1] }])
+        .data([{ p1: particles[0], p2: particles[1] }]) //binds data to the
         .attr("x1", d => d.p1.x)
         .attr("y1", d => d.p1.y)
         .attr("x2", d => d.p2.x)
@@ -106,14 +105,14 @@ function updateParticles() {
 }
 
 // Event listeners for sliders to update variables
-document.getElementById("k").addEventListener("input", (event) => {
+document.getElementById("k-struc").addEventListener("input", (event) => {
     k = parseFloat(event.target.value);
-    document.getElementById("k-value").textContent = k;
+    document.getElementById("k-struc-value").textContent = k;
 });
 
 document.getElementById("damping").addEventListener("input", (event) => {
     b = parseFloat(event.target.value);
-    document.getElementById("damping-value").textContent = b;
+    document.getElementById("structural-damping-value").textContent = b;
 });
 
 document.getElementById("mass").addEventListener("input", (event) => {
