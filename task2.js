@@ -1,7 +1,7 @@
 //task2.js
 // Canvas size and simulation parameters
 const width = 800, height = 600;
-let h = 0.1; // Time step
+let h = 0.01; // Time step
 let k = 50;  // Spring stiffness
 let b = 1;   // Damping coefficient
 let m = 1;   // Mass
@@ -126,9 +126,9 @@ function updateParticles() {
 }
 
 // Event listeners for sliders to update variables
-document.getElementById("k").addEventListener("input", (event) => {
+document.getElementById("k-struc").addEventListener("input", (event) => {
     k = parseFloat(event.target.value);
-    document.getElementById("k-value").textContent = k;
+    document.getElementById("k-struc-value").textContent = k;
 });
 
 document.getElementById("damping").addEventListener("input", (event) => {
