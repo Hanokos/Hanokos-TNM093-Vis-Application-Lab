@@ -1,7 +1,7 @@
 // task4.js // Canvas size and simulation parameters
 const width = 800, height = 600;
 let h = 0.01; // Time step
-let kstructural = 50;  // Spring stiffness for structural springs
+let kstructural = 20;  // Spring stiffness for structural springs
 let kshear = 7;  // Spring stiffness for shear springs
 let bStructural = 0.1; // Structural damping coefficient
 let bShear = 0.05;     // Shear damping coefficient
