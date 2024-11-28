@@ -6,7 +6,6 @@ let k = 50;  // Spring stiffness
 let b = 1;   // Damping coefficient
 let m = 1;   // Mass
 let restLength = 100;
-let digstiff = 50;
 
 // Define the four-mass system "particles position"
 let particles = [
