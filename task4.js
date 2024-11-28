@@ -25,7 +25,7 @@ for (let i = 0; i < 3; i++) { // iterates over 3 rows.
             vx: 0, // initial x velocity
             vy: 0, // initial y velocity
 
-             // previous position for Verlet method
+            // previous position for Verlet method
             xPrev: 300 + j * restLength,
             yPrev: 300 + i * restLength  
         });
@@ -104,7 +104,7 @@ let circles = svg.selectAll("circle")
         })
         .on("end", () => {// Stop all motion after drag ends
             particles.forEach(p => { // forEach Loop to go through all in particles array
-                p.vx = 0;
+                p.vx = 0; // set all velocity and accelration to 0
                 p.vy = 0;
                 p.ax = 0;
                 p.ay = 0;
@@ -236,7 +236,7 @@ document.getElementById("rest-length").addEventListener("input", (event) => {
 function simulation() {
     calculateForces();
     updateSystem(); // Compute new forces, velocities, positions
-    requestAnimationFrame(simulation); // Repeat
+    requestAnimationFrame(simulation); // Repeat simulation in a loop
 }
 
 // Start the simulation

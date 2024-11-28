@@ -1,5 +1,4 @@
 //extratask5.js
-
 // Canvas size and simulation parameters
 const width = 800, height = 600;
 let h = 0.01; // Time step
@@ -9,7 +8,7 @@ let bStructural = 0.1; // Structural damping coefficient
 let bShear = 0.05;     // Shear damping coefficient
 let m = 0.2;   // Mass
 let restLength = 100; // 1m = 100 pixels
-let diagonalLength = Math.sqrt(2) * restLength; // Diagonal length of square
+let diagonalLength = Math.sqrt(2) * restLength; 
 
 let particles = [];
 let springs = [];
@@ -93,11 +92,11 @@ function createParticlesAndSprings(rows, cols) {
     circles = svg.selectAll("circle")
         .data(particles)
         .enter().append("circle")
-        .attr("r", 10)
-        .attr("fill", "blue")
-        .attr("cx", d => d.x)
+        .attr("r", 10) // radius
+        .attr("fill", "blue") // make them blue
+        .attr("cx", d => d.x) // placed cordinates based on the particles position
         .attr("cy", d => d.y)
-        .call(d3.drag()
+        .call(d3.drag() // Enables dragging
             .on("start", (event, d) => {
                 // Store the previous position when drag starts
                 d.xPrev = d.x;
@@ -105,7 +104,7 @@ function createParticlesAndSprings(rows, cols) {
             })
             .on("drag", (event, d) => {
                 // Update position during dragging
-                d.x = event.x;
+                d.x = event.x; // update to mouse position
                 d.y = event.y;
                 updateSpring();
                 updateParticles();
@@ -117,7 +116,7 @@ function createParticlesAndSprings(rows, cols) {
     springLines = svg.selectAll("line")
     .data(springs)
     .enter().append("line")
-    .attr("stroke", d => d.type === 'shear' ? "blue" : "black") // Check the spring type to amke correct colour
+    .attr("stroke", d => d.type === 'shear' ? "blue" : "black") // Check the spring type to make correct colour
     .attr("stroke-width", 2);
     updateSpring();
 }

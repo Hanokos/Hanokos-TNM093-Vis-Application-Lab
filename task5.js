@@ -1,5 +1,4 @@
-// task4.js
-
+// task5.js
 // Canvas size and simulation parameters 
 const width = 800, height = 600;
 let h = 0.01; // Time step
@@ -27,9 +26,9 @@ for (let i = 0; i < 4; i++) { // iterates over 4 rows.
             vx: 0, // initial x velocity
             vy: 0, // initial y velocity
 
-             // previous position for Verlet method
-             xPrev: 300 + j * restLength,
-             yPrev: 300 + i * restLength  
+            // previous position for Verlet method
+            xPrev: 300 + j * restLength,
+            yPrev: 300 + i * restLength  
         });
     }
 }
@@ -40,7 +39,7 @@ const springs = [];
 // Horizontal Structural springs
 for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 3; j++) {  // Connect horizontally within each row
-        springs.push({  // create 12 springs
+        springs.push({  // create springs
             p1: particles[i * 4 + j], // Particle 1 the spring connects to
             p2: particles[i * 4 + j + 1], // Particle 2 the spring connects to
             restLength,  // Rest length of the spring
@@ -52,7 +51,7 @@ for (let i = 0; i < 4; i++) {
 // Vertical Structural springs
 for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 4; j++) {  // Connect vertically within each column
-        springs.push({ // create 12 springs
+        springs.push({ // create springs
             p1: particles[i * 4 + j], // Particle 1 the spring connects to
             p2: particles[(i + 1) * 4 + j], // Particle 2 the spring connects to
             restLength,
@@ -90,8 +89,8 @@ const svg = d3.select("#canvas")
 // Create circles
 let circles = svg.selectAll("circle")
     .data(particles) // link data to corresponding particle
-    .enter().append("circle") //Creates a new circle
-    .attr("r", 10) // radius
+    .enter().append("circle") // Creates a new circle
+    .attr("r", 10) //radius
     .attr("fill", "blue") // make them blue
     .attr("cx", d => d.x)  // placed coordinates based on the particles position
     .attr("cy", d => d.y)
@@ -107,7 +106,7 @@ let circles = svg.selectAll("circle")
         })
         .on("end", () => {// Stop all motion after drag ends
             particles.forEach(p => { // forEach Loop to go through all in particles array
-            p.vx = 0;
+            p.vx = 0; // set all velocity and accelration to 0
             p.vy = 0;
             p.vx = 0;
             p.vy = 0;
@@ -242,7 +241,7 @@ document.getElementById("rest-length").addEventListener("input", (event) => {
 function simulation() {
     calculateForces();
     updateSystem(); // Compute new forces, velocities, positions
-    requestAnimationFrame(simulation); // Repeat
+    requestAnimationFrame(simulation); // Repeat simulation in a loop
 }
 
 // Start the simulation

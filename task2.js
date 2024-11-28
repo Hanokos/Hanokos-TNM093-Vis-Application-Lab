@@ -162,7 +162,7 @@ document.getElementById("rest-length").addEventListener("input", (event) => {
 function simulation() {
     calculateForces();
     updateSystem(); // Compute new forces, velocities, positions
-    requestAnimationFrame(simulation); // Repeat
+    requestAnimationFrame(simulation);  // Repeat simulation in a loop
 }
 
 // Start the simulation

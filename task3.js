@@ -56,7 +56,7 @@ let circles = svg.selectAll("circle")
         })
         .on("end", () => { // Stop all motion after drag ends
             particles.forEach(p => { // forEach Loop to  go through all in particles array
-            p.vx = 0;
+            p.vx = 0;// set all velocity to 0
             p.vy = 0;
             });
         })
@@ -175,7 +175,7 @@ document.getElementById("rest-length").addEventListener("input", (event) => {
 function simulation() {
     calculateForces();
     updateSystem(); // Compute new forces, velocities, positions
-    requestAnimationFrame(simulation); // Repeat
+    requestAnimationFrame(simulation); // Repeat simulation in a loop
 }
 
 // Start the simulation
