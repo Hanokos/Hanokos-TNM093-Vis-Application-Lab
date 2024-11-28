@@ -110,18 +110,15 @@ function createParticlesAndSprings(rows, cols) {
                 updateSpring();
                 updateParticles();
             })
-            .on("end", (event, d) => {
-                // Don't reset velocity after drag ends, allow continued simulation
-            })
+   
         );
 
     // Create the spring lines
     springLines = svg.selectAll("line")
-        .data(springs)
-        .enter().append("line")
-        .attr("stroke", (d, i) => i >= (rows - 1) * (cols - 1) ? "blue" : "black")
-        .attr("stroke-width", 2);
-
+    .data(springs)
+    .enter().append("line")
+    .attr("stroke", d => d.type === 'shear' ? "blue" : "black") // Check the spring type to amke correct colour
+    .attr("stroke-width", 2);
     updateSpring();
 }
 
@@ -207,6 +204,7 @@ function calculateForces() {
         let dampingFx = (type === 'shear' ? bShear : bStructural) * dvx;
         let dampingFy = (type === 'shear' ? bShear : bStructural) * dvy;
 
+        // NEwonts 2nd law: (a = F / m)
         p1.ax += (fx + dampingFx) / m;
         p1.ay += (fy + dampingFy) / m;
         p2.ax -= (fx + dampingFx) / m;
@@ -216,6 +214,7 @@ function calculateForces() {
 
 function updateSystem() {
     particles.forEach(p => {
+        // Verlet method position to update
         let xNew = 2 * p.x - p.xPrev + p.ax * h * h;
         let yNew = 2 * p.y - p.yPrev + p.ay * h * h;
         p.xPrev = p.x;
@@ -244,6 +243,7 @@ function updateSystem() {
 
     // Update velocities
     particles.forEach(p => {
+        //Verlet method velocity to update
         p.vx = (p.x - p.xPrev) / (2 * h);
         p.vy = (p.y - p.yPrev) / (2 * h);
     });
@@ -254,8 +254,8 @@ function updateSystem() {
 
 function simulation() {
     calculateForces();
-    updateSystem();
-    requestAnimationFrame(simulation);
+    updateSystem(); // Compute new forces, velocities, positions
+    requestAnimationFrame(simulation); // Repeat simulation in a loop
 }
 
 simulation();
