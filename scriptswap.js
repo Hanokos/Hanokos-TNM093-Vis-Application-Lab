@@ -50,34 +50,34 @@ window.onload = function() {
         loadScript("task1.js");  // Load script1.js for Task 1
         updateTaskText("Task 1: Two Mass System");
         disableSlider(kShearSlider, kShearValueSpan);  // Disable the k-shear slider for task 1
-        disableSlider(restLengthSlider, restLengthValueSpan);  // Disable the rest-length slider for task 1
+        disableSlider(restLengthSlider, restLengthValueSpan);  // Disable the length slider
     } else if (task === "2") {
         loadScript("task2.js");  // Load script2.js for Task 2
         updateTaskText("Task 2: Four Mass System");
         disableSlider(kShearSlider, kShearValueSpan);  // Disable the k-shear slider for task 2
-        disableSlider(restLengthSlider, restLengthValueSpan);  // Disable the rest-length slider for task 2
+        disableSlider(restLengthSlider, restLengthValueSpan);  
     } else if (task === "3") {
         loadScript("task3.js");  // Load script3.js for Task 3
         updateTaskText("Task 3: Four Mass (Spring) System");
-        disableSlider(restLengthSlider, restLengthValueSpan);  // Disable the rest-length slider for task 3
+        disableSlider(restLengthSlider, restLengthValueSpan);  
     } else if (task === "4") {
         loadScript("task4.js");  // Load script4.js for Task 4
         updateTaskText("Task 4: Nine Mass (Spring) System");
-        disableSlider(restLengthSlider, restLengthValueSpan);  // Disable the rest-length slider for task 4
+        disableSlider(restLengthSlider, restLengthValueSpan);  
     } else if (task === "5") {
         loadScript("task5.js");  // Load script5.js for Task 5
         updateTaskText("Task 5: 4x4 Mass (Spring) System");
-        disableSlider(restLengthSlider, restLengthValueSpan);  // Disable the rest-length slider for task 5
+        disableSlider(restLengthSlider, restLengthValueSpan);  
     } else if (task === "6") {
         loadScript("extratask5.js");  // Load script6.js for Task 5.2
-        updateTaskText("Task 5.2: 3x5 Mass (Spring) System");
+        updateTaskText("Task 5.2: NxM Mass (Spring) System");
         
-        // Enable and show the rows/columns sliders
-        rowsColumnsSliders.style.display = "block";  // Make the sliders visible
+        // Enable and show the rows/columns sliders for task 5.2
+        rowsColumnsSliders.style.display = "block";  // Make the sliders visible from index.html
         rowsSlider.disabled = false;  // Enable the rows slider
         colsSlider.disabled = false;  // Enable the columns slider
 
-        // Optionally, update the default values for the sliders (if needed)
+        // update the default values for the sliders
         rowsValueSpan.textContent = rowsSlider.value;  // Set initial value for rows
         colsValueSpan.textContent = colsSlider.value;  // Set initial value for columns
     }
