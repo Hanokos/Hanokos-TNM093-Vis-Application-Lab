@@ -1,4 +1,5 @@
 //extratask5.js
+
 // Canvas size and simulation parameters
 const width = 800, height = 600;
 let h = 0.01; // Time step
@@ -152,6 +153,35 @@ document.getElementById("cols-slider").addEventListener("input", (event) => {
     let rows = parseInt(document.getElementById("rows-slider").value);
     createParticlesAndSprings(rows, cols);
     document.getElementById("cols-value").textContent = cols;
+});
+
+// Event listeners for sliders to update simulation parameters
+document.getElementById("k-struc").addEventListener("input", (event) => {
+    kstructural = parseFloat(event.target.value);
+    document.getElementById("k-struc-value").textContent = kstructural;
+});
+
+document.getElementById("k-shear").addEventListener("input", (event) => {
+    kshear = parseFloat(event.target.value);
+    document.getElementById("k-shear-value").textContent = kshear;
+});
+
+document.getElementById("damping").addEventListener("input", (event) => {
+    bStructural = parseFloat(event.target.value);
+    bShear = parseFloat(event.target.value) * 0.5; // Adjust shear damping b = 0.05 if target is 0.1
+    document.getElementById("damping-value").textContent = bStructural;
+});
+
+document.getElementById("mass").addEventListener("input", (event) => {
+    m = parseFloat(event.target.value);
+    document.getElementById("mass-value").textContent = m;
+});
+
+document.getElementById("rest-length").addEventListener("input", (event) => {
+    restLength = parseFloat(event.target.value);
+    diagonalLength = Math.sqrt(2) * restLength; // Update diagonal length when rest length changes
+    document.getElementById("rest-length-value").textContent = restLength;
+    createParticlesAndSprings(parseInt(document.getElementById("rows-slider").value), parseInt(document.getElementById("cols-slider").value));
 });
 
 // Initialize with only 1x1 grid (1 circle)
