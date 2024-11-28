@@ -1,6 +1,6 @@
 //task1.js
 // Initial system configuration for the Two Mass System
-const width = 800, height = 600; // for SVG canvas
+const width = 800, height = 600; 
 let h = 0.01; // Time step
 let k = 50;  // Spring stiffness
 let b = 1;   // Damping coefficient
@@ -66,7 +66,7 @@ function calculateForces() {
     let dy = particles[1].y - particles[0].y; // Difference in y positions
     let distance = Math.sqrt(dx * dx + dy * dy); // Euclidean distance between particles
 
-    // Calculate the Force (Hooke's Law: F = k×(d−L0))
+    // Calculate the Spring Force (Hooke's Law: F = k×(d−L0))
     let forceMagnitude = k * (distance - restLength);
 
      // Calculate the Force in x and y direction
@@ -138,7 +138,7 @@ document.getElementById("rest-length").addEventListener("input", (event) => {
 });
 
 
-// Simulation loop (to keep the system dynamic)
+// Simulation loop 
 function simulation() {
     updateSystem(); // Compute new forces, velocities, positions
     requestAnimationFrame(simulation); // Repeat

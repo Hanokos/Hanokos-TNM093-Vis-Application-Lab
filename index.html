@@ -30,7 +30,6 @@
         </div>
 
         <label for="damping">Global Damping:</label>
-        <span>(bStruc = 0.1, bShear = 0.05)</span>
         <div class="slider-container">
             <input type="range" id="damping" min="0.1" max="10" step="0.1" value="0.1">
             <span id="damping-value">0.1</span>
@@ -45,7 +44,22 @@
         <label for="mass">Node Mass:</label>
         <div class="slider-container">
             <input type="range" id="mass" min="0.1" max="10" step="0.1" value="1">
-            <span id="mass-value">1</span>
+            <span id="mass-value">0.2</span>
+        </div>
+
+        <!-- New Sliders for Rows and Columns (Task 5.2) -->
+        <div id="rows-colums-sliders" style="display: none;">
+            <label for="rows-slider">Rows:</label>
+            <div class="slider-container">
+                <input type="range" id="rows-slider" min="1" max="4" step="1" value="1">
+                <span id="rows-value">1</span>
+            </div>
+
+            <label for="cols-slider">Columns:</label>
+            <div class="slider-container">
+                <input type="range" id="cols-slider" min="1" max="6" step="1" value="1">
+                <span id="cols-value">1</span>
+            </div>
         </div>
     </div>
 

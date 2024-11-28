@@ -57,6 +57,23 @@ window.onload = function() {
     } else if (task === "6") {
         loadScript("extratask5.js");  // Load script6.js for Task 5.2
         updateTaskText("Task 5.2: 3x5 Mass (Spring) System");
+
+        // Show the row and column sliders
+        document.getElementById("rows-colums-sliders").style.display = "block";
+
+        // Update the rows and columns values dynamically
+        const rowsSlider = document.getElementById("rows-slider");
+        const colsSlider = document.getElementById("cols-slider");
+        const rowsValueSpan = document.getElementById("rows-value");
+        const colsValueSpan = document.getElementById("cols-value");
+
+        rowsSlider.addEventListener("input", function() {
+            rowsValueSpan.textContent = rowsSlider.value;
+        });
+
+        colsSlider.addEventListener("input", function() {
+            colsValueSpan.textContent = colsSlider.value;
+        });
     }
 };
 

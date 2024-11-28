@@ -52,23 +52,10 @@ h1 {
     width: 100%;  /* Ensures the heading is within the container */
 }
 
-/* Styling for the label */
+/* Space between each label and input (slider) */
 #controls label {
-    display: block;  /* Makes the label a block element to ensure text appears on multiple lines */
-    width: 250px;  /* Fixed width for the labels */
-    height: auto;  /* Let the height adjust based on content */
     margin-bottom: 5px;  /* Space between label and slider */
-    line-height: 1.5;  /* Adjust line-height for better vertical spacing */
-    text-align: left;  /* Left-align text within the label */
 }
-
-/* Make the span inside the label appear on the next line */
-#controls label span {
-    display: block;  /* This forces the span to start on a new line */
-    font-size: 14px;  /* You can adjust the font size of the second line if needed */
-    color: #555;  /* Lighter color for the additional text (optional) */
-}
-
 
 /* Container for sliders */
 .slider-container {

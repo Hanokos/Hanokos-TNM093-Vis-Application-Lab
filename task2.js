@@ -115,7 +115,7 @@ function calculateForces() {
     });
 }
 
-// Euler method to update positions
+// Euler method to update and velocity positions
 function updateSystem() {
     particles.forEach(p => { // forEach Loop to  go through all in particles array
 

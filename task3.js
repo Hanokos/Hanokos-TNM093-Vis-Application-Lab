@@ -11,8 +11,8 @@ let restLength = 100;
 let diagonalLength = Math.sqrt(2) * restLength; // Diagonal length of square
 
 // Define the initial four-mass system
-/*(1) (2)
-  (3) (4)*/
+/*ID: (1) (2)
+      (3) (4)*/
 
 let particles = [
     { id: 1, x: 300, y: 300, vx: 0, vy: 0 }, // Top-left
@@ -45,7 +45,8 @@ let circles = svg.selectAll("circle")
     .attr("cx", d => d.x) // placed cordinates based on the particles position
     .attr("cy", d => d.y)
 
-    .call(d3.drag() // Enables dragging
+   // Enables dragging
+    .call(d3.drag()
         .on("drag", (event, d) => {
             d.x = event.x; // Update the circles position to the mouse position
             d.y = event.y;
@@ -53,11 +54,10 @@ let circles = svg.selectAll("circle")
             updateSpring(); // Update spring line positions
             updateParticles(); // Update Circles  positions
         })
-        .on("end", () => {
-            // Stop all motion after drag ends
+        .on("end", () => { // Stop all motion after drag ends
             particles.forEach(p => { // forEach Loop to  go through all in particles array
-                p.vx = 0;
-                p.vy = 0;
+            p.vx = 0;
+            p.vy = 0;
             });
         })
     );
@@ -122,7 +122,7 @@ function calculateForces() {
     });
 }
 
-// Euler integration for position updates
+// Euler method for position and velocity updates
 function updateSystem() {
     particles.forEach(p => {// forEach Loop to  go through all in particles array
 
