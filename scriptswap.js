@@ -1,3 +1,4 @@
+// scriptswap.js
 // Event listener for Task 1 button (reloads page with a query parameter for Task 1)
 document.getElementById("task1Btn").addEventListener("click", function() {
     window.location.href = window.location.pathname + "?task=1";  // Reload the page with task=1 parameter
